@@ -12,3 +12,6 @@ baseurl: ""
 
 # Website root url
 url: https://eduardomessias.github.io
+
+# Jekyll markdown capabilities extension
+markdown: kramdown
