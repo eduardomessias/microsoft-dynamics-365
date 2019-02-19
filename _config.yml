@@ -7,5 +7,8 @@ name: Eduardo Messias
 # Website title
 title: Eduardo Messias
 
+# Root directory
+baseurl: ""
+
 # Website root url
 url: https://eduardomessias.github.io/
