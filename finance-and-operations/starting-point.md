@@ -1,4 +1,4 @@
-# Microsoft Dynamics 365 for Finance and Operations
+# Finance and Operations
 Code sharing repository for Microsoft Dynamics 365 ERP
 ## Xpp files
 - [Project hour journal creation](https://eduardomessias.github.io/microsoft-dynamics-365/finance-and-operations/xpp/ProjJournalService.xpp)
