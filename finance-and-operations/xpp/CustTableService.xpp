@@ -1,0 +1,45 @@
+/// <summary>
+///     Eduardo Messias
+///     CustTableService class centralize the most common operations for a customer.
+/// </summary>
+class CustTableService
+{
+    /// <summary>
+    ///     Eduardo Messias
+    ///     Create or update the customer contact info into the right logistics table.
+    /// </summary>
+    /// <param name = "_locationName">Location name is an alias for the contact info</param>
+    /// <param name = "_locator">The contact info itself (i.e.: abc@123.com)</param>
+    /// <param name = "_type">The type of the contact info</param>
+    /// <param name = "_isPrimary">Indicates if this is the primary contact info for this customer</param>
+    public static void createOrUpdateCustomerContactInfo(CustTable _custTable, 
+                                                         Description _locationName, 
+                                                         LogisticsElectronicAddressLocator _locator,
+                                                         LogisticsElectronicAddressMethodType _type, 
+                                                         LogisticsIsPrimary _isPrimary)
+    {
+        DirPartyContactInfoView dirPartyContactInfo;
+
+        if (isConfigurationkeyEnabled(configurationKeyNum(KCWDevelopmentCore)))
+        {
+            DirParty dirParty = DirParty::constructFromCommon(_custTable);
+
+            dirPartyContactInfo.LocationName    = _locationName;
+            dirPartyContactInfo.Locator         = _locator;
+            dirPartyContactInfo.Type            = _type;
+            dirPartyContactInfo.IsPrimary       = _isPrimary;
+
+            dirParty.createOrUpdateContactInfo(dirPartyContactInfo);
+
+            // TODO: in order to add or overwrite the purposes of this contact info uncomment and modify the lines bellow accordingly
+            //container roles = [LogisticsLocationRole::findByType(LogisticsLocationRoleType::Business).RecId,
+            //     LogisticsLocationRole::findByType(LogisticsLocationRoleType::Delivery).RecId];
+
+            //LogisticsElectronicAddressRole::createLocationRoles(dirPartyContactInfo.getElectronicAddress().RecId, roles, false);
+        }
+
+        return dirPartyContactInfo;
+    }
+
+    
+}
