@@ -1,21 +1,21 @@
 -- Check the default dimensions of a worker
-SELECT DEFAULTDIMENSIONVIEW.* 
+select DefaultDimensionView.* 
 
-	FROM HCMWORKER
+	from HcmWorker
 	
-	JOIN HCMEMPLOYMENT ON HCMEMPLOYMENT.WORKER = HCMwORKER.RECID
-	JOIN DEFAULTDIMENSIONVIEW ON DEFAULTDIMENSIONVIEW.DEFAULTDIMENSION = HCMEMPLOYMENT.DEFAULTDIMENSION
+	join HcmEmployment on HcmEmployment.Worker = HcmWorker.RecId
+	join DefaultDimensionView on DefaultDimensionView.DefaultDimension = HcmEmployment.DefaultDimension
 
-	WHERE HCMWORKER.PERSONNELNUMBER = '000001'
+	where HcmWorker.PersonnelNumber = '000001'
 
 
 -- Check the ledger dimension
-SELECT DIMENSIONATTRIBUTEVALUECOMBINATION.RECID AS LEDGERDIMENSION, *
+select DimensionAttributeValueCombination.RecId AS LedgerDimension, *
 
-	FROM DIMENSIONATTRIBUTEVALUECOMBINATION
+	from DimensionAttributeValueCombination
 
-	JOIN DIMENSIONHIERARCHY ON DIMENSIONHIERARCHY.RECID = DIMENSIONATTRIBUTEVALUECOMBINATION.ACCOUNTSTRUCTURE
-	JOIN DIMENSIONHIERARCHYLEVEL ON DIMENSIONHIERARCHYLEVEL.DIMENSIONHIERARCHY = DIMENSIONHIERARCHY.RECID
-	JOIN DIMENSIONATTRIBUTE ON DIMENSIONATTRIBUTE.RECID = DIMENSIONHIERARCHYLEVEL.DIMENSIONATTRIBUTE
+	join DimensionHierarchy on DimensionHierarchy.RecId = DimensionAttributeValueCombination.AccountStructure
+	join DimensionHierarchyLevel on DimensionHierarchyLevel.DimensionHierarchy = DimensionHierarchy.RecId
+	join DimensionAttribute on DimensionAttribute.RecId = DimensionHierarchyLevel.DimensionAttribute
 
-	WHERE DIMENSIONATTRIBUTEVALUECOMBINATION.RECID = 22565425517
+	where DimensionAttributeValueCombination.RecId = 22565425517
