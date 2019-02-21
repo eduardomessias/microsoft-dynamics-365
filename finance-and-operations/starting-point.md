@@ -10,3 +10,4 @@ Code sharing repository for Microsoft Dynamics 365 ERP
 
 ## Documents
 - [Best practices](https://eduardomessias.github.io/microsoft-dynamics-365/finance-and-operations/docs/best-practices)
+- [Tips n' tricks](https://eduardomessias.github.io/microsoft-dynamics-365/finance-and-operations/docs/tips-and-tricks)
